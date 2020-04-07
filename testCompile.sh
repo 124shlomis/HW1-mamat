@@ -10,4 +10,5 @@ then
     exit 1
 else
 	echo "Compile succeeded"
+	exit 0
 fi
