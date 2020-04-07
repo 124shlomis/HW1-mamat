@@ -4,3 +4,10 @@
 # parameter 1 - the name of the log file - for user choice.
 # parameter 2 - the name of the program which the user would like to create.
 gcc -Wall -o "$2" "{$2}.c" > "$1.log"
+if [ $? -ne 0 ]
+then
+    echo "Compile failed"
+    exit 1
+else
+	echo "Compile succeeded"
+fi
