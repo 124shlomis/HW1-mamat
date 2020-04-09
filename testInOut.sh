@@ -5,7 +5,7 @@
 # parameter 3 - name of the input file
 # parameter 4 - name of the desired output file
 ./$2 $3 > "$1.log"
-if [[ $(diff "$1.log" $4) = "" ]]; then
+if [[ $(diff "$1.log" $4) == "" ]]; then
 	echo "Out files match"
 	exit 0
 elif [[ $(diff "$1.log" $4) != "" ]]; then
