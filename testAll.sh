@@ -1,9 +1,9 @@
 #!/bin/bash
-# this script gets a list of checks. Firstly, its checking if there is a dirctory 
+# this script gets a list of checks. Firstly, its checking if there is a dirctiry 
 # named "logFiles". If there is - it prints Failure message and exit the program.
 # If there is no dirctory - it will create it.
 # The script prints the number of the line and the description of the checking.
-# the script need to run all the 3 checkings: Compilation, input/output and memory.
+# the script need to run all the 3 checkings: Comilation, input/output and memory.
 # In the end of all the checks. it will print the number of the successed checks.
 # and sum of all the checks.
 # parameter 1 - list of checks
@@ -17,12 +17,12 @@ fi
 ((lines_number=`cat $1 | wc -l`))
 ((line_counter=1))
 ((success_counter=0))
-while IFS= read -r line; do
+while read -r line; do
 	if [[ $line == "" ]];then
 		continue
 	fi
 	IFS='@' 
-	read -ra splited_line  <<< "$line"
+	read -r -a splited_line  <<< "$line"
 	description=${splited_line[0]}
 	program=${splited_line[1]}
 	input=${splited_line[2]}
