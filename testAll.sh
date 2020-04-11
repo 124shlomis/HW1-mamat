@@ -38,5 +38,5 @@ while read -r line; do
 		((success_counter++))
 	fi
 	((line_counter++))
-done < $1
-echo $success_counter tests passed out from $((line_counter*3-3))
+done < "$1"
+echo $success_counter tests passed out of $((line_counter*3-3))
