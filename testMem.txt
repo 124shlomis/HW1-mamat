@@ -1,0 +1,15 @@
+#!/bin/bash
+
+valgrind --tool=memcheck ./$2 < "$3" 2> "$1" > /dev/null
+
+er1=`grep "ERROR SUMMARY: 0 errors from 0 contexts" "$1"` 2> /dev/null
+er2=`grep "LEAK SUMMARY:" "$1"` 2> /dev/null
+
+if [ "$er1"=="ERROR SUMMARY: 0 errors from 0 contexts" ] && [ -z "$er2" ] 
+then
+	echo "Memeory test passed"
+	exit 0
+else
+	echo "Memeory tets failed"
+	exit 1
+fi
