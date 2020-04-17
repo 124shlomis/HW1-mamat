@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# 1st parameter is the name of the log file
+# 2nd parameter is the name of the program's name
+
+# this script compiles origin file *.c , compiles it,
+# and saves the compilation output in $1
+
+gcc -Wall -o "$2" "$2".c &> "$1"
+
+if [ ! -s "$1" ]; then					# checks if there is an error
+	echo "Compile succeeded"
+	exit 0
+else
+	echo "Compile failed"
+	exit 1
+fi
